@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, Camera, Heart, History, MapPin, Sparkles, Star } from 'lucide-react';
+import { ArrowRight, Camera, Heart, History, MapPin, Sparkles, Star, BookOpen, Award, Building2 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 // A simple fade-in intersection observer hook
@@ -115,6 +115,58 @@ export default function Home() {
               Time moves only forward, but memory lets us look back. We believe that no place you loved should be forgotten simply because you had to leave it behind. We are an order of volunteers dedicated to preserving the echoes of the past for those who need them today.
             </p>
           </FadeInSection>
+        </div>
+      </section>
+
+      {/* Nashville Launch City */}
+      <section className="py-28 px-6 relative border-b border-white/5 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background pointer-events-none"></div>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <FadeInSection>
+              <div className="space-y-6">
+                <div className="inline-flex items-center gap-2 text-primary">
+                  <MapPin className="w-5 h-5" />
+                  <span className="uppercase tracking-widest text-sm font-semibold">Now Live</span>
+                </div>
+                <h2 className="text-4xl md:text-6xl font-serif leading-tight">
+                  Launching in <br /><span className="text-primary italic">Nashville, TN</span>
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  We're starting small — one city, one community, one memory at a time. Nashville was chosen as our charter city because it carries more history per block than almost anywhere in America: venues that shaped music, neighborhoods reshaped by growth, and stories that deserve to be kept.
+                </p>
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  Whether you remember Printers Alley in the nineties, the old Elliston Place Soda Shop, or a corner of East Nashville that looks nothing like it used to — there's a Knight nearby who can go there for you.
+                </p>
+                <Button size="lg" className="h-13 px-8 rounded-full bg-primary text-primary-foreground hover:bg-accent transition-all duration-300 mt-2">
+                  Join as a Charter Member
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </div>
+            </FadeInSection>
+
+            <FadeInSection delay={200}>
+              <div className="space-y-4">
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6">More cities coming — join the waitlist</p>
+                {[
+                  { city: 'Memphis, TN', note: 'Waitlist open' },
+                  { city: 'Knoxville, TN', note: 'Waitlist open' },
+                  { city: 'Chattanooga, TN', note: 'Waitlist open' },
+                  { city: 'Louisville, KY', note: 'Waitlist open' },
+                  { city: 'Atlanta, GA', note: 'Waitlist open' },
+                  { city: 'Your city', note: 'Request it' },
+                ].map((item) => (
+                  <div key={item.city} className="flex items-center justify-between py-3 border-b border-border/40 group cursor-pointer hover:border-primary/30 transition-colors">
+                    <div className="flex items-center gap-3">
+                      <MapPin className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                      <span className="text-foreground/80 group-hover:text-foreground transition-colors">{item.city}</span>
+                    </div>
+                    <span className="text-xs text-primary/60 group-hover:text-primary transition-colors">{item.note}</span>
+                  </div>
+                ))}
+              </div>
+            </FadeInSection>
+          </div>
         </div>
       </section>
 
@@ -266,6 +318,87 @@ export default function Home() {
               </div>
             </FadeInSection>
           </div>
+        </div>
+      </section>
+
+      {/* Historical Grants & Preservation */}
+      <section className="py-28 px-6 bg-card/20 border-b border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <FadeInSection>
+            <div className="text-center mb-16 space-y-4">
+              <div className="inline-flex items-center gap-2 text-primary">
+                <BookOpen className="w-5 h-5" />
+                <span className="uppercase tracking-widest text-sm font-semibold">Historical Preservation</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-serif">Built to last. <br/>Recognized as history.</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                Every fulfilled wish is a timestamped visual and oral history record. We are actively pursuing grant partnerships to sustain and expand this archive for future generations.
+              </p>
+            </div>
+          </FadeInSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
+            {[
+              {
+                org: 'National Endowment for the Humanities',
+                abbr: 'NEH',
+                type: 'Federal',
+                desc: 'NEH Preservation & Access grants fund projects that digitize and make accessible materials of historical or cultural significance. Community-sourced photo and audio archives qualify.',
+                icon: Award,
+              },
+              {
+                org: 'Tennessee Humanities Council',
+                abbr: 'THC',
+                type: 'State',
+                desc: 'The THC funds public humanities projects that connect Tennesseans to their cultural heritage. A Nashville-rooted oral history archive fits squarely within their mission.',
+                icon: Building2,
+              },
+              {
+                org: 'Community Foundation of Middle Tennessee',
+                abbr: 'CFMT',
+                type: 'Local',
+                desc: 'CFMT supports community organizations preserving Nashville\'s history and cultural identity — particularly projects that document neighborhoods experiencing rapid change.',
+                icon: Heart,
+              },
+              {
+                org: 'Tennessee Historical Commission',
+                abbr: 'THComm',
+                type: 'State',
+                desc: 'THComm grants support documentation of historic sites and everyday community places that may not qualify for formal landmark status but carry irreplaceable local memory.',
+                icon: Star,
+              },
+            ].map((grant) => (
+              <FadeInSection key={grant.abbr} delay={100}>
+                <Card className="glass-panel border-white/5 hover:border-primary/20 transition-colors duration-500 h-full">
+                  <CardContent className="p-6 space-y-4 h-full flex flex-col">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <div className="text-xs text-primary/70 uppercase tracking-widest mb-1">{grant.type} · {grant.abbr}</div>
+                        <h3 className="font-serif text-lg leading-snug">{grant.org}</h3>
+                      </div>
+                      <grant.icon className="w-5 h-5 text-primary/40 shrink-0 mt-1" />
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">{grant.desc}</p>
+                  </CardContent>
+                </Card>
+              </FadeInSection>
+            ))}
+          </div>
+
+          <FadeInSection delay={200}>
+            <div className="glass-panel rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center gap-8">
+              <div className="flex-1 space-y-2">
+                <h3 className="font-serif text-2xl">Interested in partnering or co-applying?</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  We're open to working with universities, local history societies, libraries, and preservation organizations in Nashville and beyond. If you have grant knowledge or institutional connections, we'd love to talk.
+                </p>
+              </div>
+              <Button variant="outline" className="shrink-0 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-7 h-12 transition-all duration-300">
+                Express Interest
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
+          </FadeInSection>
         </div>
       </section>
 

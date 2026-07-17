@@ -68,9 +68,15 @@ export default function FeedScreen() {
       <View style={[styles.header, { paddingTop: topPad + 10, backgroundColor: colors.background }]}>
         <View style={styles.logoArea}>
           <Feather name="shield" size={22} color={colors.primary} />
-          <Text style={[styles.logoText, { color: colors.foreground }]}>
-            Knights<Text style={{ color: colors.primary }}> of Nostalgia</Text>
-          </Text>
+          <View>
+            <Text style={[styles.logoText, { color: colors.foreground }]}>
+              Knights<Text style={{ color: colors.primary }}> of Nostalgia</Text>
+            </Text>
+            <View style={styles.cityPill}>
+              <Feather name="map-pin" size={10} color={colors.primary} />
+              <Text style={[styles.cityText, { color: colors.primary }]}>Nashville, TN · Charter City</Text>
+            </View>
+          </View>
         </View>
         <View style={styles.headerActions}>
           <TouchableOpacity
@@ -175,6 +181,8 @@ const styles = StyleSheet.create({
   },
   logoArea: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   logoText: { fontFamily: 'Inter_700Bold', fontSize: 18, letterSpacing: -0.3 },
+  cityPill: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 1 },
+  cityText: { fontFamily: 'Inter_400Regular', fontSize: 10, letterSpacing: 0.2 },
   headerActions: { flexDirection: 'row', gap: 8 },
   iconBtn: { padding: 6, position: 'relative' },
   badge: {

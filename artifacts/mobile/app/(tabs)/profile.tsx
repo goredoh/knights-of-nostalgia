@@ -63,6 +63,12 @@ export default function ProfileScreen() {
               <Text style={[styles.username, { color: colors.mutedForeground }]}>
                 @{currentUser.username}
               </Text>
+              <View style={styles.cityBadge}>
+                <Feather name="map-pin" size={10} color={colors.mutedForeground} />
+                <Text style={[styles.cityBadgeText, { color: colors.mutedForeground }]}>
+                  {currentUser.city} · Charter Member
+                </Text>
+              </View>
               <TouchableOpacity
                 style={[styles.roleBadge, { backgroundColor: `${colors.primary}20`, borderColor: `${colors.primary}40` }]}
                 onPress={() => {
@@ -239,6 +245,8 @@ const styles = StyleSheet.create({
   headerInfo: { flex: 1, gap: 6, paddingTop: 4 },
   name: { fontFamily: 'Inter_700Bold', fontSize: 22, letterSpacing: -0.3 },
   username: { fontFamily: 'Inter_400Regular', fontSize: 14 },
+  cityBadge: { flexDirection: 'row', alignItems: 'center', gap: 4 },
+  cityBadgeText: { fontFamily: 'Inter_400Regular', fontSize: 11 },
   roleBadge: {
     flexDirection: 'row',
     alignItems: 'center',
