@@ -1,0 +1,2 @@
+- [Vite base-path assets](vite-base-path-assets.md) — Use `import.meta.env.BASE_URL` when referencing files under `public/` in artifacts served on a non-root path.
+- [Expo Metro transient watch errors](expo-metro-watch-errors.md) — ENOENT on a pnpm `_tmp_` directory during Metro's file watch usually resolves with a workflow restart.
