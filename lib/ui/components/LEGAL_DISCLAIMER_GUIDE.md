@@ -1,18 +1,22 @@
-/**
- * Implementation Guide: LegalDisclaimer Component
- * 
- * This guide shows where and how to integrate the LegalDisclaimer component
- * throughout your web and mobile applications.
- */
+# Legal Disclaimer Component - Implementation Guide
 
-// ============================================================================
-// WEB APP IMPLEMENTATIONS
-// ============================================================================
+This guide shows where and how to integrate the `LegalDisclaimer` component throughout your web and mobile applications.
 
-// 1. FOOTER IMPLEMENTATION (Most Common)
-// File: artifacts/web/src/components/Footer.tsx
-// ============================================================================
-/*
+## Overview
+
+The `LegalDisclaimer` component comes in three display modes:
+- **Compact Mode**: Expandable header (best for recurring visibility)
+- **Full Mode**: Always expanded (best for settings/legal pages)
+- **Force Full Mode**: Non-collapsible (required for onboarding)
+
+---
+
+## 🌐 Web App Implementations
+
+### 1. Footer Implementation (Most Common)
+**File:** `artifacts/web/src/components/Footer.tsx`
+
+```tsx
 import { LegalDisclaimer } from '@workspace/ui/components/LegalDisclaimer';
 
 export function Footer() {
@@ -33,12 +37,13 @@ export function Footer() {
     </footer>
   );
 }
-*/
+```
 
-// 2. ONBOARDING MODAL (First-Time Users)
-// File: artifacts/web/src/components/OnboardingModal.tsx
-// ============================================================================
-/*
+### 2. Onboarding Modal (First-Time Users)
+**File:** `artifacts/web/src/components/OnboardingModal.tsx`
+
+```tsx
+import { useState } from 'react';
 import { LegalDisclaimer } from '@workspace/ui/components/LegalDisclaimer';
 
 export function OnboardingModal({ onComplete }: { onComplete: () => void }) {
@@ -86,12 +91,12 @@ export function OnboardingModal({ onComplete }: { onComplete: () => void }) {
     </div>
   );
 }
-*/
+```
 
-// 3. UPLOAD MEDIA PAGE
-// File: artifacts/web/src/pages/UploadMedia.tsx
-// ============================================================================
-/*
+### 3. Upload Media Page
+**File:** `artifacts/web/src/pages/UploadMedia.tsx`
+
+```tsx
 import { LegalDisclaimer } from '@workspace/ui/components/LegalDisclaimer';
 
 export function UploadMediaPage() {
@@ -108,12 +113,12 @@ export function UploadMediaPage() {
     </div>
   );
 }
-*/
+```
 
-// 4. SETTINGS PAGE
-// File: artifacts/web/src/pages/Settings.tsx
-// ============================================================================
-/*
+### 4. Settings Page
+**File:** `artifacts/web/src/pages/Settings.tsx`
+
+```tsx
 import { LegalDisclaimer } from '@workspace/ui/components/LegalDisclaimer';
 
 export function SettingsPage() {
@@ -135,16 +140,16 @@ export function SettingsPage() {
     </div>
   );
 }
-*/
+```
 
-// ============================================================================
-// MOBILE APP IMPLEMENTATIONS (Expo/React Native)
-// ============================================================================
+---
 
-// 5. MOBILE SETTINGS SCREEN
-// File: artifacts/mobile/src/screens/SettingsScreen.tsx
-// ============================================================================
-/*
+## 📱 Mobile App Implementations (Expo/React Native)
+
+### 5. Mobile Settings Screen
+**File:** `artifacts/mobile/src/screens/SettingsScreen.tsx`
+
+```tsx
 import { View, ScrollView, Text } from 'react-native';
 import { LegalDisclaimer } from '@workspace/ui/components/LegalDisclaimer';
 
@@ -164,12 +169,12 @@ export function SettingsScreen() {
     </ScrollView>
   );
 }
-*/
+```
 
-// 6. MOBILE UPLOAD SCREEN
-// File: artifacts/mobile/src/screens/UploadScreen.tsx
-// ============================================================================
-/*
+### 6. Mobile Upload Screen
+**File:** `artifacts/mobile/src/screens/UploadScreen.tsx`
+
+```tsx
 import { View, ScrollView } from 'react-native';
 import { LegalDisclaimer } from '@workspace/ui/components/LegalDisclaimer';
 
@@ -185,13 +190,14 @@ export function UploadScreen() {
     </ScrollView>
   );
 }
-*/
+```
 
-// 7. MOBILE ONBOARDING
-// File: artifacts/mobile/src/screens/OnboardingScreen.tsx
-// ============================================================================
-/*
+### 7. Mobile Onboarding
+**File:** `artifacts/mobile/src/screens/OnboardingScreen.tsx`
+
+```tsx
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { useState } from 'react';
 import { LegalDisclaimer } from '@workspace/ui/components/LegalDisclaimer';
 
 export function OnboardingScreen({ navigation }) {
@@ -234,39 +240,45 @@ export function OnboardingScreen({ navigation }) {
     </ScrollView>
   );
 }
-*/
+```
 
-// ============================================================================
-// PLACEMENT STRATEGY
-// ============================================================================
+---
 
-/*
-COMPACT MODE (compact={true}):
-- Footer of every page
-- Before upload forms
-- In list item previews
-- Sidebar disclaimers
-- Best for: Recurring visibility without interruption
+## 🎯 Placement Strategy Summary
 
-FULL MODE (compact={false}):
-- Settings/Legal pages
-- Dedicated disclaimer sections
-- Legal documentation pages
-- Best for: When users explicitly seek full terms
+| Mode | Use Case | Examples |
+|------|----------|----------|
+| **Compact** | Recurring visibility without interruption | Footer, before upload, recurring pages |
+| **Full** | When users explicitly seek full terms | Settings, dedicated legal pages |
+| **Force Full** | Non-negotiable acknowledgment | Onboarding, first upload, account creation |
 
-FORCE FULL MODE (forceFull={true}):
-- Onboarding flow (critical - must be read)
-- First-time upload experience
-- Account creation
-- Best for: Non-negotiable acknowledgment
+---
 
-PLACEMENT BEST PRACTICES:
-1. ALWAYS show on upload pages
-2. ALWAYS show in onboarding
-3. ALWAYS show in footer (compact)
-4. Show in settings (full)
-5. Show before location sharing features
-6. Show in mobile bottom navigation links
-*/
+## ✅ Best Practices Checklist
 
-export const DISCLAIMER_IMPLEMENTATION_COMPLETE = true;
+- ✅ ALWAYS show on upload pages (protect users from sharing unauthorized content)
+- ✅ ALWAYS show in onboarding flow (ensure new users acknowledge terms)
+- ✅ ALWAYS show in footer as compact version (maintain consistent visibility)
+- ✅ Show full version in settings (legal page)
+- ✅ Show before location-sharing features (critical for property access)
+- ✅ Make acceptance checkbox required on onboarding
+- ✅ Track user acceptance in database (legal protection)
+- ✅ Ensure accessible with keyboard navigation
+
+---
+
+## 🔧 Import Statement
+
+```tsx
+import { LegalDisclaimer } from '@workspace/ui/components/LegalDisclaimer';
+```
+
+## 📦 Component Props
+
+```tsx
+interface LegalDisclaimerProps {
+  compact?: boolean;    // Default: true - Show expandable version
+  forceFull?: boolean;  // Default: false - Force full display
+  className?: string;   // Additional CSS classes
+}
+```
