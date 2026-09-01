@@ -6,6 +6,32 @@ A **community-driven nostalgia archive and wish fulfillment platform** with seam
 
 Knights of Nostalgia is a platform where communities can preserve and celebrate nostalgic memories while fulfilling each other's wishes. Whether you're looking to reconnect with classic experiences or help others relive their favorite moments, this platform brings people together through shared nostalgia.
 
+## ⚠️ Legal Disclaimer & User Responsibilities
+
+**By using this platform to gather, share, or contribute media (photos, videos, or other content), you agree to the following:**
+
+1. **Property Rights & Trespassing**: You are solely responsible for ensuring you have proper authorization before capturing media on any property. Do not enter private property, restricted areas, or locations without explicit permission from the owner or authorized representative. Trespassing is illegal and we do not condone such activity.
+
+2. **Respect for Privacy & Locations**: When visiting nostalgic sites or properties, obtain all necessary permits and permissions. Respect "No Trespassing" signs, private boundaries, and local regulations. Damage to property, disturbance of residents, or unauthorized access is your responsibility.
+
+3. **No Liability**: Knights of Nostalgia and its operators assume **no responsibility** for:
+   - Any legal consequences resulting from users' failure to obtain proper permissions
+   - Trespassing, property damage, or disturbances caused by users
+   - Violations of local, state, or federal laws
+   - Any civil or criminal liability arising from media collection activities
+
+4. **Content Contributors**: You warrant that you own or have legal rights to all media you upload and share. You alone are responsible for ensuring compliance with copyright, privacy, and property laws.
+
+5. **User Conduct**: By participating, you commit to:
+   - Following all applicable laws and regulations
+   - Respecting private property and local ordinances
+   - Obtaining necessary permissions and permits
+   - Acting ethically and responsibly in all activities
+
+**Violation of these terms may result in immediate account suspension and removal of content.**
+
+---
+
 ## 📦 Architecture
 
 This is a **pnpm monorepo** containing multiple packages organized as follows:
